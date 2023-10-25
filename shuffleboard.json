@@ -1,0 +1,472 @@
+{
+  "tabPane": [
+    {
+      "title": "Driver Settings",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "network_table:///SmartDashboard/Driver Settings/",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "7,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Base Turn Speed",
+              "_title": "Base Turn Speed"
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Turn Deadband",
+              "_title": "Turn Deadband"
+            }
+          },
+          "5,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Turn Filtering",
+              "_title": "Turn Filtering"
+            }
+          },
+          "2,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Turn Power",
+              "_title": "Turn Power"
+            }
+          },
+          "5,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Speed Power",
+              "_title": "Speed Power"
+            }
+          },
+          "3,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Speed Deadband",
+              "_title": "Speed Deadband"
+            }
+          },
+          "5,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Speed Filtering",
+              "_title": "Speed Filtering"
+            }
+          },
+          "0,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Max Speed",
+              "_title": "Max Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "0,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Speed Filtering",
+              "_title": "Speed Filtering",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "0,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Max Speed Angle",
+              "_title": "Max Turn Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "3,1": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/ Invert Steering, Angle Setpoint Threshold",
+              "_title": "Invert Steering, Angle Setpoint Threshold"
+            }
+          },
+          "8,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Displacement Auto",
+              "_title": "Displacement Auto"
+            }
+          },
+          "8,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Driver Settings/Time Driving Auto",
+              "_title": "Time Driving Auto"
+            }
+          },
+          "8,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Autonomous",
+              "_title": "/SmartDashboard/Autonomous"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Feeder and Shooter Settings",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "network_table:///SmartDashboardFeeder and Shooter Settings/",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "9,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Feeder and Shooter Settings/Shooting Speed",
+              "_title": "Shooting Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 25.0,
+              "Slider Settings/Block increment": 100.0,
+              "Visuals/Display value": true
+            }
+          },
+          "9,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Feeder and Shooter Settings/Roller Spin Speed",
+              "_title": "Roller Spin Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "7,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Feeder and Shooter Settings/Intake Position Up",
+              "_title": "Intake Position Up",
+              "Slider Settings/Min": -2000.0,
+              "Slider Settings/Max": 2000.0,
+              "Slider Settings/Block increment": 100.0,
+              "Visuals/Display value": true
+            }
+          },
+          "7,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Feeder and Shooter Settings/Intake Position Down",
+              "_title": "Intake Position Down",
+              "Slider Settings/Min": 5000.0,
+              "Slider Settings/Max": 20000.0,
+              "Slider Settings/Block increment": 100.0,
+              "Visuals/Display value": true
+            }
+          },
+          "9,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Feeder and Shooter Settings/Upper Intake Shoot Speed",
+              "_title": "Upper Intake Shoot Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "0,0": {
+            "size": [
+              6,
+              4
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://USB Camera 1",
+              "_title": "USB Camera 1",
+              "Crosshair/Show crosshair": true,
+              "Crosshair/Crosshair color": "#FFFFFFFF",
+              "Controls/Show controls": true,
+              "Controls/Rotation": "NONE",
+              "compression": 35.0,
+              "fps": 10,
+              "imageWidth": 320,
+              "imageHeight": 240
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Climber Settings",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "network_table:///SmartDashboard/Climber Settings/",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Climber Settings/Climber Speed",
+              "_title": "Climber Speed",
+              "Slider Settings/Min": 0.0,
+              "Slider Settings/Max": 1.0,
+              "Slider Settings/Block increment": 0.0625,
+              "Visuals/Display value": true
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Climber Settings/Ratchet Release Angle",
+              "_title": "Winch Servo Release Angle",
+              "Slider Settings/Min": -90.0,
+              "Slider Settings/Max": 90.0,
+              "Slider Settings/Block increment": 2.0,
+              "Visuals/Display value": true
+            }
+          },
+          "3,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Number Slider",
+              "_source0": "network_table:///SmartDashboard/Climber Settings/Ratchet Engage Angle",
+              "_title": "Winch Servo Engage Angle",
+              "Slider Settings/Min": -90.0,
+              "Slider Settings/Max": 90.0,
+              "Slider Settings/Block increment": 2.0,
+              "Visuals/Display value": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Testing",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "network_table:///SmartDashboard/Testing",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "8,0": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "List Layout",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Motor Controller",
+                  "_title": "Motor Controller",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_title": "Motor Controller",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_title": "Motor Controller",
+                  "Visuals/Orientation": "HORIZONTAL"
+                }
+              ]
+            }
+          },
+          "4,1": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "PDP",
+              "_title": "PDP",
+              "Visuals/Show voltage and current values": true
+            }
+          },
+          "3,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Toggle Switch",
+              "_title": "Toggle Switch"
+            }
+          },
+          "6,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Motor Controller",
+              "_title": "Motor Controller",
+              "Visuals/Orientation": "HORIZONTAL"
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Basic Subsystem",
+              "_title": "Basic Subsystem"
+            }
+          },
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "List Layout",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "1,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "Grid Layout",
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "TOP",
+              "_children": {
+                "0,0": {
+                  "_type": "Command",
+                  "_title": "Command"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -5.5,
+    "y": 1.5,
+    "width": 1290.0,
+    "height": 651.0
+  }
+}
