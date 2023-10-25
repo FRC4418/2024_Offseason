@@ -32,12 +32,12 @@ import frc.robot.subsystems.autoBalance;
 
 import java.util.List;
 
-import com.pathplanner.lib.PathConstraints;
-import com.pathplanner.lib.PathPlanner;
-import com.pathplanner.lib.PathPlannerTrajectory;
-import com.pathplanner.lib.PathPoint;
-import com.pathplanner.lib.commands.PPRamseteCommand;
-import com.pathplanner.lib.server.PathPlannerServer;
+import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.pathplanner.lib.path.PathConstraints;
+import com.pathplanner.lib.path.PathPlannerPath;
+import com.pathplanner.lib.path.PathPlannerTrajectory;
+import com.pathplanner.lib.util.PathPlannerLogging;
 import com.stuypulse.stuylib.control.feedforward.Feedforward.Drivetrain;
 import com.stuypulse.stuylib.input.gamepads.AutoGamepad;
 
@@ -100,16 +100,6 @@ public class RobotContainer {
       Constants.AutoPIDs.kI,
       Constants.AutoPIDs.kD);
 
-  PathPlannerTrajectory driveToSM = PathPlanner.loadPath("Test",
-      new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond,
-          Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared));
-  PathPlannerTrajectory driveToComm = PathPlanner.loadPath("Back",
-      new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond,
-          Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared));
-
-  PathPlannerTrajectory driveToCS = PathPlanner.loadPath("onCS",
-      new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond,
-          Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared));
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    * @return 
@@ -120,7 +110,6 @@ public class RobotContainer {
   private static final String shootAndBalance = "Balance";
 
   public RobotContainer() {
-    driveTrain.ahrs.reset();
     m_chooser.setDefaultOption("Do Nothings", "defaultAuto");
     m_chooser.addOption("1 Piece", "OnePiece");
     m_chooser.addOption("Shoot and Balance", "shootAndBalance");
@@ -135,6 +124,8 @@ public class RobotContainer {
 
     configureDefualtCommands();
     configureCommnads();
+
+    NamedCommands.registerCommand("Balance", new balance(driveTrain));
   }
 
   public void configureDefualtCommands() {
@@ -166,37 +157,6 @@ public class RobotContainer {
     spotter.getLeftButton().whileTrue(new ParallelCommandGroup(new moveIntakePos(intake, Constants.intakePositionControl.downPos), new intakeSuck(rollers, -0.75)));
   }
 
-public Command drivePathCS(boolean isFirstPath, String nameOfPath) {
-  // An example command will be run in autonomous
-
-  PathPlannerTrajectory drivePath1 = PathPlanner.loadPath(nameOfPath, new PathConstraints(1.5, 2.0));
-  PathPlannerServer.sendActivePath(drivePath1.getStates());
-
-  return new SequentialCommandGroup(
-    new InstantCommand(() -> {
-      // Reset odometry for the first path you run during auto
-      if(isFirstPath){
-        Pose2d e = drivePath1.getInitialPose();  
-        //Pose2d flippedPose = new Pose2d(e.getX(),e.getY(),e.getRotation().minus(Rotation2d.fromDegrees(180)));
-        //driveTrain.resetOdometry(flippedPose);
-        driveTrain.resetOdometry(e);
-      }
-    }),
-    new PPRamseteCommand(
-        drivePath1, 
-        driveTrain::getPose, // Pose supplier
-        new RamseteController(),  
-        new SimpleMotorFeedforward(0.14971, 0.0073732, 0.0092238),
-        driveTrain.kinematics, // DifferentialDriveKinematics
-        driveTrain::getWheelSpeeds, // `DifferentialDriveWheelSpeeds supplier
-        leftPID, // Left controller. Tune these values for your robot. Leaving them 0 will only use feedforwards.
-        rightPID, // Right controller (usually the same values as left controller)
-        driveTrain::tankDriveVolts, // Voltage bicnsumer
-        false, // Should the path be automatically mirrored depending on alliance color. Optional, defaults to true
-        driveTrain // Requires this drive subsystem
-    )
-);
-}
 
   public Command getAutonomousCommand(boolean isFirstPath) {
     //SCORE | BALANCE

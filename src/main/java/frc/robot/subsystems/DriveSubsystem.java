@@ -10,8 +10,13 @@ import com.kauailabs.navx.frc.AHRS;
 import com.pathplanner.lib.PathConstraints;
 import com.pathplanner.lib.PathPlanner;
 import com.pathplanner.lib.PathPlannerTrajectory;
+import com.pathplanner.lib.commands.FollowPathRamsete;
+import com.pathplanner.lib.commands.FollowPathWithEvents;
 import com.pathplanner.lib.commands.PPRamseteCommand;
+import com.pathplanner.lib.path.PathPlannerPath;
 import com.pathplanner.lib.server.PathPlannerServer;
+import com.pathplanner.lib.util.PathPlannerLogging;
+import com.pathplanner.lib.util.ReplanningConfig;
 import com.stuypulse.stuylib.math.SLMath;
 
 import edu.wpi.first.math.controller.PIDController;
@@ -320,35 +325,21 @@ public void impulseDrive(double xSpeed, double zRotation) {
   }
 
   public Command drivePath(boolean isFirstPath, String nameOfPath) {
-    // An example command will be run in autonomous
-  
-    PathPlannerTrajectory drivePath1 = PathPlanner.loadPath(nameOfPath, new PathConstraints(1.5, 3.0));
-    PathPlannerServer.sendActivePath(drivePath1.getStates());
-  
-    return new SequentialCommandGroup(
-      new InstantCommand(() -> {
-        // Reset odometry for the first path you run during auto
-        if(isFirstPath){
-          Pose2d e = drivePath1.getInitialPose();  
-          //Pose2d flippedPose = new Pose2d(e.getX(),e.getY(),e.getRotation().minus(Rotation2d.fromDegrees(180)));
-          //driveTrain.resetOdometry(flippedPose);
-          this.resetOdometry(e);
-        }
-      }),
-      new PPRamseteCommand(
-          drivePath1, 
-          this::getPose, // Pose supplier
-          new RamseteController(),  
-          new SimpleMotorFeedforward(0.14971, 0.0073732, 0.0092238),
-          this.kinematics, // DifferentialDriveKinematics
-          this::getWheelSpeeds, // `DifferentialDriveWheelSpeeds supplier
-          leftPID, // Left controller. Tune these values for your robot. Leaving them 0 will only use feedforwards.
-          rightPID, // Right controller (usually the same values as left controller)
-          this::tankDriveVolts, // Voltage bicnsumer
-          false, // Should the path be automatically mirrored depending on alliance color. Optional, defaults to true
-          this // Requires this drive subsystem
-      )
-  );
+    PathPlannerPath path = PathPlannerPath.fromPathFile(nameOfPath);
+    PathPlannerLogging.logActivePath(path);
+
+    return new FollowPathWithEvents(
+      new FollowPathRamsete(
+        path, 
+        this::getPose,  
+        this::getWheelSpeeds 
+        this::tankDriveVolts, 
+        new ReplanningConfig(), 
+        this
+      ), 
+      path,
+      this::getPose
+    );    
   }
   
 

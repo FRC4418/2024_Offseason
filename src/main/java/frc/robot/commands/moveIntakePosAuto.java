@@ -6,10 +6,10 @@ package frc.robot.commands;
 
 import javax.swing.text.Position;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ArmSubsystem;
 
-public class moveIntakePosAuto extends CommandBase {
+public class moveIntakePosAuto extends Command {
   /** Creates a new moveIntakePos. */
   ArmSubsystem intake = new ArmSubsystem();
   double position;

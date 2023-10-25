@@ -10,11 +10,11 @@ import com.stuypulse.stuylib.math.SLMath;
 import com.stuypulse.stuylib.streams.IStream;
 import com.stuypulse.stuylib.streams.filters.LowPassFilter;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.Settings;
 import frc.robot.subsystems.DriveSubsystem;
 
-public class DrivetrainDrive extends CommandBase {
+public class DrivetrainDrive extends Command {
   private final DriveSubsystem drivetrain;
   private final Gamepad driver;
 

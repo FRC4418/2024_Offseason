@@ -6,11 +6,11 @@ package frc.robot.commands;
 
 import com.stuypulse.stuylib.util.plot.Playground.Constants;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Rollers;
 
-public class climberStop extends CommandBase {
+public class climberStop extends Command {
   /** Creates a new intakeSuck. */
   Climber climber = new Climber();
 

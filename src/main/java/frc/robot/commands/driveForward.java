@@ -5,10 +5,10 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
 
-public class driveForward extends CommandBase {
+public class driveForward extends Command {
   /** Creates a new driveForward. */
   DriveSubsystem driveTrain = new DriveSubsystem();
   Timer timer = new Timer(); 

@@ -6,10 +6,10 @@ package frc.robot.commands;
 
 import com.stuypulse.stuylib.util.plot.Playground.Constants;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Rollers;
 
-public class intakeSuck extends CommandBase {
+public class intakeSuck extends Command {
   /** Creates a new intakeSuck. */
   Rollers rollers = new Rollers();
   double speed;

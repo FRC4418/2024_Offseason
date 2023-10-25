@@ -8,6 +8,7 @@ import com.pathplanner.lib.PathConstraints;
 import com.pathplanner.lib.PathPlanner;
 import com.pathplanner.lib.PathPlannerTrajectory;
 import com.pathplanner.lib.server.PathPlannerServer;
+import com.pathplanner.lib.util.PathPlannerLogging;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -47,8 +48,7 @@ public class Robot extends TimedRobot {
     // m_chooser.addOption("1 Pieace", kCustomAuto);
     // m_chooser.addOption("Shoot and Balance", shootAndBalance);
     // SmartDashboard.putData("Auto choices", m_chooser);
-    
-    PathPlannerServer.startServer(5811);
+
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
